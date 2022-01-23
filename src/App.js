@@ -6,6 +6,9 @@ import withTracker from "./withTracker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
+import Login from "./views/Login";
+import MainFooter from "./components/layout/MainFooter";
+import LoginNavbar from "./components/layout/LoginNavbar/LoginNavbar";
 
 export default () => (
   <Router basename={process.env.REACT_APP_BASENAME || ""}>
@@ -26,6 +29,17 @@ export default () => (
           />
         );
       })}
+      <Route
+        path="/login"
+        exact={true}
+        component={() => (
+          <>
+            <LoginNavbar />
+            <Login />
+            <MainFooter />
+          </>
+        )}
+      />
     </div>
   </Router>
 );
